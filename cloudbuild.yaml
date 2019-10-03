@@ -2,7 +2,7 @@
 steps:
 
 - name: 'python:3.7-slim'
-  id: Test
+  id: Synopsys
   entrypoint: /bin/sh
   args:
   - -c
