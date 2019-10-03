@@ -5,7 +5,7 @@ from app import test
 class TestApp(unittest.TestCase):
 
     def test_test(self):
-        self.assertEqual(test(), "cicd!\n")
+        self.assertEqual(test(), "synopsys!\n")
 
 
 if __name__ == '__main__':
