@@ -1,7 +1,7 @@
 import unittest
 from app import test
 
-class TestHelloApp(unittest.TestCase):
+class TestApp(unittest.TestCase):
 
   def test_test(self):
     self.assertEqual(test(), "synopsys!\n")
