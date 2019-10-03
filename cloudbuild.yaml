@@ -1,25 +1,21 @@
-
 steps:
+  - name: "python:3.7-slim"
+    id: Synopsys
+    entrypoint: /bin/sh
+    args:
+      - -c
+      - "pip install flask && python test_app.py -v"
 
-- name: 'python:3.7-slim'
-  id: Synopsys
-  entrypoint: /bin/sh
-  args:
-  - -c
-  - 'pip install flask && python test_app.py -v'
+  - name: "gcr.io/cloud-builders/docker"
+    id: Build
+    args:
+      - "build"
+      - "-t"
+      - "gcr.io/$PROJECT_ID/testing-cloudbuild:$SHORT_SHA"
+      - "."
 
-
-- name: 'gcr.io/cloud-builders/docker'
-  id: Build
-  args:
-  - 'build'
-  - '-t'
-  - 'gcr.io/$PROJECT_ID/testing-cloudbuild:$SHORT_SHA'
-  - '.'
-
-
-- name: 'gcr.io/cloud-builders/docker'
-  id: Push
-  args:
-  - 'push'
-  - 'gcr.io/$PROJECT_ID/testing-cloudbuild:$SHORT_SHA'
+  - name: "gcr.io/cloud-builders/docker"
+    id: Push
+    args:
+      - "push"
+      - "gcr.io/$PROJECT_ID/testing-cloudbuild:$SHORT_SHA"
