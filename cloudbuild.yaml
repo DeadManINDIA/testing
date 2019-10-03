@@ -14,8 +14,4 @@ steps:
       - "gcr.io/$PROJECT_ID/testing-cloudbuild:$SHORT_SHA"
       - "."
 
-  - name: "gcr.io/cloud-builders/docker"
-    id: Push
-    args:
-      - "push"
-      - "gcr.io/$PROJECT_ID/testing-cloudbuild:$SHORT_SHA"
+ 
