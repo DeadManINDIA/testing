@@ -24,12 +24,7 @@ steps:
   - 'push'
   - 'gcr.io/$PROJECT_ID/testing-cloudbuild:$SHORT_SHA'
 
-- name: 'gcr.io/cloud-builders/kubectl'
-  id: Deploy
-  args:
-  - 'apply'
-  - '-f'
-  - 'kubernetes.yaml'
-  env:
-  - 'CLOUDSDK_COMPUTE_ZONE=us-central1-a'
-  - 'CLOUDSDK_CONTAINER_CLUSTER=testing'
+- steps:
+- name: "gcr.io/cloud-builders/gcloud"
+  args: ["app", "deploy"]
+timeout: "1600s"
