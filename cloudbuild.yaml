@@ -24,7 +24,6 @@ steps:
   - 'push'
   - 'gcr.io/$PROJECT_ID/testing-cloudbuild:$SHORT_SHA'
 
-- steps:
 - name: "gcr.io/cloud-builders/gcloud"
   id: Deploy
   args: ["app", "deploy"]
