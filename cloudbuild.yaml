@@ -26,7 +26,10 @@ steps:
 
 - name: "gcr.io/cloud-builders/gcloud"
   id: Deploy
-  args: ["test"]
+  args: 
+  - Deploy
+  - 'gcr.io/$PROJECT_ID/testing-cloudbuild'
+
 timeout: "1600s"
 
 #testing
