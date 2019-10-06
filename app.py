@@ -1,12 +1,11 @@
+#!/usr/bin/env python
 
-from flask import Flask
-app = Flask('synopsys')
+import webapp2
 
+class MainHandler(webapp2.RequestHandler):
+    def get(self):
+self.response.write('I update automatically!')
 
-@app.route('/')
-def test():
-    return "synopsys!\n"
-
-
-if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=8080)
+app = webapp2.WSGIApplication([
+    ('/', MainHandler)
+], debug=True)
