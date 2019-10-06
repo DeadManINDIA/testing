@@ -4,7 +4,7 @@ steps:
   entrypoint: /bin/sh
   args:
   - -c
-  - 'pip install flask && python main_test.py -v'
+  - 'pip install flask && python test_app.py -v'
 
 
 - name: "gcr.io/cloud-builders/gcloud"
